@@ -1,9 +1,8 @@
 
-from utils.helpers import clean_lines, parse_products
+from .helpers import clean_lines, parse_products
 
 from pathlib import Path
 path = Path.home() / "Data"
-
 
 class Product:
 

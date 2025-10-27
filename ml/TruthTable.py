@@ -1,5 +1,6 @@
 
 class TruthTable:
+
     def __init__(self, columnNames, outputValues):
         if pow(2, len(columnNames)) != len(outputValues):
             raise ValueError("Incompatible columns and outputValues!")
@@ -8,10 +9,12 @@ class TruthTable:
         columnNames.append("Output")
         self.columnNames = columnNames
 
+    @staticmethod
     def lengthen(bools, length):
         while len(bools) < length:
             bools.extend(list(bools))
 
+    @staticmethod
     def baseBools(bits):
         baseBools, length = [], pow(2, bits)
         block = length
@@ -70,23 +73,3 @@ class TruthTable:
 
         print("".join(s))
 
-
-class Perceptron:
-    def __init__(self, inputNames, weights, bias):
-        if len(inputNames) != len(weights):
-            raise ValueError("Each input has a weight in a Perceptron!")
-
-        self.inputNames = inputNames
-        self.weights = weights
-        self.bias = bias
-
-    def activation(self, inputs):
-        total = sum(w * x for w, x in zip(self.weights, inputs)) + self.bias
-        return True if total > 0 else False
-
-    def printResult(self):
-        TruthTable(self.inputNames, [self.activation(row) for row in TruthTable.baseBools(len(self.inputNames))]).drawTable()
-
-
-perceptron = Perceptron(["Weather", "Company", "Distance"], [3, 2, 2], -3)
-perceptron.printResult()

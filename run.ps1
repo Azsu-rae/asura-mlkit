@@ -1,3 +1,3 @@
 
 
-py -m scripts.main
+py -m scripts.ml_main
