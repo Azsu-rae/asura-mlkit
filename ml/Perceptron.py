@@ -15,6 +15,7 @@ class Perceptron:
         return True if total > 0 else False
 
     def printResult(self):
+        print()
         TruthTable(self.inputNames, [self.activation(row) for row in TruthTable.baseBools(len(self.inputNames))]).drawTable()
 
     def backpropagation(self):
