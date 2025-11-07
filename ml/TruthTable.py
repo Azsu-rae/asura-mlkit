@@ -27,7 +27,7 @@ class TruthTable:
         result = []
         for i in range(pow(2, bits)):
             result.append([row[i] for row in baseBools])
- 
+
         return result
 
     def values(self):
@@ -37,13 +37,20 @@ class TruthTable:
 
         return values
 
+    @staticmethod
+    def displayFormat(x):
+        if isinstance(x, float):
+            return x.__str__()
+        elif isinstance(x, bool):
+            return "1" if x else "0"
+
     def drawTable(self):
         s, length, columnLimitations = ["|"], 1, [0]
         for columnName in self.columnNames:
 
             length += len(columnName)+1
             s.append(" " + columnName)
- 
+
             length += 2
             s.append(" |")
             columnLimitations.append(length-1)
@@ -57,7 +64,7 @@ class TruthTable:
 
         s.append("\n")
         baseBools = self.values()
-        for row in baseBools:
+        for i, row in enumerate(baseBools):
             first = True
             for col, baseBool in enumerate(row):
                 nameLength = len(self.columnNames[col])
@@ -66,9 +73,10 @@ class TruthTable:
                     s.append("|")
                     first = False
                 s.append(" " * (halfway+1))
-                s.append("1" if baseBool else "0")
+                s.append(TruthTable.displayFormat(baseBool))
                 s.append(" " * (nameLength - halfway))
-                s.append("|")
+                if col+1 != len(row):
+                    s.append("|")
             s.append("\n")
 
         print("".join(s))
