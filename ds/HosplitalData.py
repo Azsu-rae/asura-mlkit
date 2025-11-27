@@ -33,4 +33,4 @@ df['AgeGroup'] = df['Age'].apply(age_group)
 
 df['Bonus'] = df['DailyCost'] * 0.1
 
-print(df['Bonus'] > 50)
+df['Satisfaction'] = df['Satisfaction'].fillna(df['Satisfaction'].mean())
