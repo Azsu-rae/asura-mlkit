@@ -18,19 +18,28 @@ data = {
 }
 
 import pandas as pd
+import seaborn as sns
+import matplotlib.pyplot as plt
 
 df = pd.DataFrame(data)
 
-# Q1
-
 df['TotalCost'] = df['DaysAdmitted'] * df['DailyCost']
-
-# Q2
-
 df['AgeGroup'] = df['Age'].apply(age_group)
-
-# Q3
-
 df['Bonus'] = df['DailyCost'] * 0.1
+df['RiskScore'] = df['DaysAdmitted'] * 0.4 + df['Age'] * 0.3 + (100 - df['Satisfaction'] * 10) * 0.3
 
-df['Satisfaction'] = df['Satisfaction'].fillna(df['Satisfaction'].mean())
+sns.barplot(df, x='City', y='Satisfaction', hue='Department')
+plt.show()
+
+sns.barplot(df, x='City', y='Satisfaction')
+plt.show()
+
+sns.boxplot(data=df, x='City', y='RiskScore')
+plt.show()
+
+sns.violinplot(data=df, x='City', y='RiskScore')
+plt.show()
+
+correlation = df[['Age', 'DaysAdmitted', 'DailyCost', 'Satisfaction', 'Readmitted', 'TotalCost', 'Bonus', 'RiskScore']].corr()
+sns.heatmap(correlation)
+plt.show()
