@@ -17,6 +17,7 @@ matplotlib==3.10.8
 mccabe==0.7.0
 mypy_extensions==1.1.0
 numpy==2.3.5
+opencv-python==4.10.0.84
 packaging==25.0
 pandas==2.3.3
 parso==0.8.5
@@ -38,6 +39,7 @@ pytz==2025.2
 rope==1.14.0
 scikit-learn==1.8.0
 scipy==1.16.3
+seaborn==0.13.2
 six==1.17.0
 snowballstemmer==3.0.1
 threadpoolctl==3.6.0
