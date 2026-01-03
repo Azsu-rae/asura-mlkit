@@ -19,7 +19,7 @@ class TruthTable:
     def baseBools(bits):
         baseBools, length = [], pow(2, bits)
         block = length
-        for i in range(bits):
+        for _ in range(bits):
             bools = [j >= block//2 for j in range(block)]
             TruthTable.lengthen(bools, length)
             baseBools.append(bools)
@@ -44,6 +44,8 @@ class TruthTable:
             return x.__str__()
         elif isinstance(x, bool):
             return "1" if x else "0"
+        else:
+            print("you got a problem")
 
     def drawTable(self):
         s, length, columnLimitations = ["|"], 1, [0]

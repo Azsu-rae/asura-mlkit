@@ -1,14 +1,5 @@
 
 from util import TruthTable
-import numpy as np
-
-
-def sigmoid(x):
-    return 1 / (1 + np.exp(-x))
-
-
-def binary(x):
-    return True if x > 0 else False
 
 
 class Perceptron:
@@ -27,5 +18,7 @@ class Perceptron:
         return self.activationMethod(total)
 
     def printResult(self):
-        print()
-        TruthTable(self.inputNames, [self.activation(row) for row in TruthTable.baseBools(len(self.inputNames))]).drawTable()
+        print(end="\n")
+        booleanInputs = TruthTable.baseBools(len(self.inputNames))
+        outputs = [self.activation(row) for row in booleanInputs]
+        TruthTable(self.inputNames, outputs).drawTable()
