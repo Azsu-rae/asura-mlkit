@@ -1,14 +1,14 @@
 
 
 class TruthTable:
-
     def __init__(self, columnNames, outputValues):
+
         if pow(2, len(columnNames)) != len(outputValues):
             raise ValueError("Incompatible columns and outputValues!")
 
         self.outputValues = outputValues
-        columnNames.append("Output")
-        self.columnNames = columnNames
+        self.columnNames = columnNames.copy()
+        self.columnNames.append("Output")
 
     @staticmethod
     def lengthen(bools, length):
