@@ -1,7 +1,7 @@
 
-from mlkit import Perceptron, linear
+from mlkit import SingleNeuron, linear
 
-perceptron = Perceptron(weights=[1.0, 1.0], bias=0.0, activationMethod=linear)
+singleNeuron = SingleNeuron(weights=[1.0, 1.0], bias=0.0, activationFunction=lambda x: 1.0 if x > 0.5 else 0.0)
 
-perceptron.fit(targets=[0, 1, 1, 0], iterations=10000, learning_rate=0.001)
-perceptron.printResult()
+singleNeuron.fit(targets=[0, 0, 0, 1], iterations=10000, learning_rate=0.001)
+singleNeuron.printResult()
