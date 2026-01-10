@@ -1,4 +1,10 @@
 
+def toint(bool):
+    if bool:
+        return 1
+    else:
+        return 0
+
 
 class TruthTable:
     def __init__(self, columnNames, outputValues):
@@ -20,7 +26,7 @@ class TruthTable:
         baseBools, length = [], pow(2, bits)
         block = length
         for _ in range(bits):
-            bools = [j >= block//2 for j in range(block)]
+            bools = [toint(j >= block//2) for j in range(block)]
             TruthTable.lengthen(bools, length)
             baseBools.append(bools)
             block //= 2
@@ -42,10 +48,10 @@ class TruthTable:
     def displayFormat(x):
         if isinstance(x, float):
             return x.__str__()
-        elif isinstance(x, bool):
+        elif isinstance(x, bool) or isinstance(x, int):
             return "1" if x else "0"
         else:
-            print("you got a problem")
+            print("you got a problem with {}".format(x))
 
     def drawTable(self):
         s, length, columnLimitations = ["|"], 1, [0]

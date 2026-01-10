@@ -28,15 +28,15 @@ class SingleNeuron:
     def linear_combination(self, inputs):
         return sum(w * x for w, x in zip(self.weights, inputs)) + self.bias
 
-    def activation(self, inputs):
+    def predict(self, inputs):
         return self.activationFunction(self.linear_combination(inputs))
 
-    def fit(self, targets, iterations, learning_rate=0.001):
+    def fit(self, targets, epochs, learning_rate=0.001):
 
         booleanInputs = TruthTable.baseBools(self.inputsLen)
         loss = []
 
-        for it in range(iterations):
+        for it in range(epochs):
             loss.append(0)
             for i, (x, target) in enumerate(zip(booleanInputs, targets)):
 
@@ -64,7 +64,7 @@ class SingleNeuron:
     def printResult(self):
         print(end="\n")
         booleanInputs = TruthTable.baseBools(len(self.inputNames))
-        outputs = [self.activation(row) for row in booleanInputs]
+        outputs = [self.predict(row) for row in booleanInputs]
         TruthTable(self.inputNames, outputs).drawTable()
 
         print(end="\n")
