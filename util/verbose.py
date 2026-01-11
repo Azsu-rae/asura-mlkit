@@ -1,7 +1,4 @@
 
-verb = True
-
-
 def write(s, verb):
     if verb is True:
         print(s)
