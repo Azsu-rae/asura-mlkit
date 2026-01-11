@@ -87,4 +87,5 @@ class TruthTable:
                     s.append("|")
             s.append("\n")
 
+        print()
         print("".join(s))
