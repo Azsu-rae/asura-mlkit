@@ -1,6 +1,6 @@
 
-import cvkit
 import numpy as np
+import cvkit
 
 
 # iterate through an image (leaving space as a padding) to 'do' something
@@ -87,10 +87,12 @@ def bi_weighted_convolution(image, i, j, kernel, sigma_s, sigma_r):
 
     return resultat
 
+
 def bilateral(im, ker, sigma_s, sigma_r):
     return standard(im, ker, lambda i, j: bi_weighted_convolution(im, i, j, ker, sigma_s, sigma_r))
 
 # ----------------- nagao -----------------
+
 
 # pour recuperer touts les pixels d'une region donner
 def region_projection(image, region, i, j):
@@ -101,6 +103,7 @@ def region_projection(image, region, i, j):
         pixels.append(image[i+k, j+l])
 
     return np.array(pixels)
+
 
 # faires des iterations sur toutes les regions, recuperer la meiller, et finalement finir par recuperer la moyenne
 def choose_region(im, i, j, ker):
@@ -117,8 +120,10 @@ def choose_region(im, i, j, ker):
 
     return region_projection(im, regions[good_region], i, j).sum() / len(regions[good_region])
 
+
 def nagao(image, kernel):
     return standard(image, kernel, choose_region)
+
 
 #
 def min_max_scalling(im, ymin, ymax, seuil):

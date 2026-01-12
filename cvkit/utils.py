@@ -1,8 +1,7 @@
 
 import matplotlib.pyplot as plt
-from util import math
 import numpy as np
-
+import mathkit as math
 
 def mse(im, imf):
 

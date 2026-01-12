@@ -17,16 +17,16 @@ class Perceptron:
         self.inputNames = [f"x{i}" for i in range(1, nb_inputs+1)]
         self.nb_inputs = nb_inputs
 
-        self.w = np.array(w)
+        self.w = np.array(w, dtype=np.float64)
         if w is None:
-            self.w = np.zeros(self.nb_inputs)
+            self.w = np.zeros(nb_inputs)
 
-        self.b = b
+        self.b = np.float64(b)
         if b is None:
             self.b = 0
 
-        initzip("weights", self.w, prefix="w", verb=verb)
-        init("bias", "b", self.b, verb=verb)
+        initzip("weights", self.w, prefix="w", verb=verb["struct"])
+        init("bias", "b", self.b, verb=verb["struct"])
         self.epoch = 0
         self.display(verb=verb)
 
@@ -47,7 +47,7 @@ class Perceptron:
             error = True
             for example_index, x in enumerate(input_examples):
 
-                step("Example", example_index+1, verb=verb["struct"])
+                step("Example", x, verb=verb["struct"])
                 pad(verb=verb["struct"])
                 state("w", self.w, verb=verb["struct"])
                 state("b", round(self.b, 2), verb=verb["struct"])
@@ -88,7 +88,7 @@ class Perceptron:
                         round(self.b + eta*e, 2), e != 0,
                         verb=verb["equ"])
                 self.b += eta * e
-                self.epoch = epoch
+                self.epoch = epoch+1
                 self.display(verb={"struct": verb["struct"], "equ": False})
 
             if (self.outputs(False) == y).all():
@@ -123,7 +123,7 @@ class Perceptron:
             start("Reached the max epochs with no result!", verb=verb["struct"])
 
         pad(verb=verb["struct"])
-        state("epoch", self.epoch, verb=verb["struct"])
+        state("nb. epoch", self.epoch, verb=verb["struct"])
         state("w", self.w, verb=verb["struct"])
         state("b", round(self.b, 2), verb=verb["struct"])
 
