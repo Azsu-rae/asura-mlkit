@@ -1,2 +1,2 @@
 
-python -m CV_TP3.TP3_Exo2
+python -m CV_TP2.TP2_Exo4

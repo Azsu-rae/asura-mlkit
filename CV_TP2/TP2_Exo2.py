@@ -1,24 +1,18 @@
 
-from pathlib import Path
-import cv as cvkit
+import cvkit
 import cv2
 
 # Q1
 
-imgdirpath = Path.home() / "data" / "Images"
-
-imgpath = "{}/cameraman.bmp".format(imgdirpath)
-im1 = cv2.imread(imgpath, cv2.IMREAD_GRAYSCALE)
+im1 = cv2.imread("Images/cameraman.bmp", cv2.IMREAD_GRAYSCALE)
 if im1 is None:
     raise ValueError("No image!")
 
-imgpath = "{}/cameraman_bruit_gauss_sig0_001.bmp".format(imgdirpath)
-im2 = cv2.imread(imgpath, cv2.IMREAD_GRAYSCALE)
+im2 = cv2.imread("Images/cameraman_bruit_gauss_sig0_001.bmp", cv2.IMREAD_GRAYSCALE)
 if im2 is None:
     raise ValueError("No image!")
 
-imgpath = "{}/cameraman_bruit_sel_poivre_p_10.bmp".format(imgdirpath)
-im3 = cv2.imread(imgpath, cv2.IMREAD_GRAYSCALE)
+im3 = cv2.imread("Images/cameraman_bruit_sel_poivre_p_10.bmp", cv2.IMREAD_GRAYSCALE)
 if im3 is None:
     raise ValueError("No image!")
 
@@ -46,13 +40,15 @@ cv2.destroyAllWindows()
 
 ker = 3
 im3fc = cvkit.filter.median(im3, ker)
+im2fc = cvkit.filter.median(im2, ker)
 im3f = cv2.medianBlur(im3, ker)
 im2fm = cv2.medianBlur(im2, ker)
 
 cv2.imshow('G noise', im2)
-cv2.imshow('SP noise', im3)
-
 cv2.imshow('MedianF G', im2fm)
+cv2.imshow('CMedianF G', im2fc)
+
+cv2.imshow('SP noise', im3)
 cv2.imshow('MedianF SP', im3f)
 cv2.imshow('CMedianF SP', im3fc)
 
@@ -72,33 +68,33 @@ psnr_opencv['im1_im3f'] = cv2.PSNR(im1, im3f)
 
 psnr_custom = {}
 
-psnr_custom['im1_im2'] = cvkit.utils.psnr(im1, im2)
-psnr_custom['im1_im2f'] = cvkit.utils.psnr(im1, im2f)
-psnr_custom['im1_im2fm'] = cvkit.utils.psnr(im1, im2fm)
+psnr_custom['im1_im2'] = cvkit.util.psnr(im1, im2)
+psnr_custom['im1_im2f'] = cvkit.util.psnr(im1, im2f)
+psnr_custom['im1_im2fm'] = cvkit.util.psnr(im1, im2fm)
 
-psnr_custom['im1_im3'] = cvkit.utils.psnr(im1, im3)
-psnr_custom['im1_im3f'] = cvkit.utils.psnr(im1, im3f)
+psnr_custom['im1_im3'] = cvkit.util.psnr(im1, im3)
+psnr_custom['im1_im3f'] = cvkit.util.psnr(im1, im3f)
 
-# print(f"\n1. PSNR(im1, im2)    = {psnr_opencv['im1_im2']:.4f} dB")
-# print(f"\n2. PSNR(im1, imf2)   = {psnr_opencv['im1_im2f']:.4f} dB")
-# print(f"\n5. PSNR(im1, imfm2)  = {psnr_opencv['im1_im2fm']:.4f} dB")
-# print(f"\n3. PSNR(im1, im3)    = {psnr_opencv['im1_im3']:.4f} dB")
-# print(f"\n4. PSNR(im1, imf3)   = {psnr_opencv['im1_im3f']:.4f} dB")
-#
-# print(f"\n1. Custom PSNR(im1, im2)    = {psnr_custom['im1_im2']:.4f} dB")
-# print(f"\n2. Custom PSNR(im1, imf2)   = {psnr_custom['im1_im2f']:.4f} dB")
-# print(f"\n5. Custom PSNR(im1, imfm2)  = {psnr_custom['im1_im2fm']:.4f} dB")
-# print(f"\n3. Custom PSNR(im1, im3)    = {psnr_custom['im1_im3']:.4f} dB")
-# print(f"\n4. Custom PSNR(im1, imf3)   = {psnr_custom['im1_im3f']:.4f} dB")
+print(f"\n1. PSNR(im1, im2)    = {psnr_opencv['im1_im2']:.4f} dB")
+print(f"\n2. PSNR(im1, imf2)   = {psnr_opencv['im1_im2f']:.4f} dB")
+print(f"\n5. PSNR(im1, imfm2)  = {psnr_opencv['im1_im2fm']:.4f} dB")
+print(f"\n3. PSNR(im1, im3)    = {psnr_opencv['im1_im3']:.4f} dB")
+print(f"\n4. PSNR(im1, imf3)   = {psnr_opencv['im1_im3f']:.4f} dB")
+
+print(f"\n1. Custom PSNR(im1, im2)    = {psnr_custom['im1_im2']:.4f} dB")
+print(f"\n2. Custom PSNR(im1, imf2)   = {psnr_custom['im1_im2f']:.4f} dB")
+print(f"\n5. Custom PSNR(im1, imfm2)  = {psnr_custom['im1_im2fm']:.4f} dB")
+print(f"\n3. Custom PSNR(im1, im3)    = {psnr_custom['im1_im3']:.4f} dB")
+print(f"\n4. Custom PSNR(im1, imf3)   = {psnr_custom['im1_im3f']:.4f} dB")
 
 # Q5
 
 ker = 5
 sigma = 1.0
-im2fg = cv2.GaussianBlur(im2, (ker,ker), sigmaX=sigma)
+im2fg = cv2.GaussianBlur(im2, (ker, ker), sigmaX=sigma)
 im2fgc = cvkit.filter.gaussian(im2, 5, 1.0)
 
-print(f"\nPSNR(im2fg, im2fgc)   = {cv2.PSNR(im2fg, im2fgc)} dB")
+# print(f"\nPSNR(im2fg, im2fgc)   = {cv2.PSNR(im2fg, im2fgc)} dB")
 
 cv2.imshow('gf', im2fg)
 cv2.imshow('cgf', im2fgc)
@@ -111,21 +107,10 @@ sigmaSpace = 10.0
 im2fb = cv2.bilateralFilter(im2, d, sigmaColor, sigmaSpace)
 im2fbc = cvkit.filter.bilateral(im2, d, sigmaSpace, sigmaColor)
 
-print(f"\nPSNR(im2fb, im2fbc)   = {cv2.PSNR(im2fb, im2fbc)} dB")
+# print(f"\nPSNR(im2fb, im2fbc)   = {cv2.PSNR(im2fb, im2fbc)} dB")
 
 cv2.imshow('original', im2)
 cv2.imshow('bf', im2fb)
 cv2.imshow('cbf', im2fbc)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
-
-# im2fbc = cvkit.filtre_bilateral(im2, d, sigmaColor, sigmaSpace)
-# cv2.imshow("G Bilateral", im2fb)
-# cv2.imshow("G BL C", im2fbc)
-#
-# im2fg = cv2.GaussianBlur(im2, (5,5), sigmaX=2.0)
-#
-# cv2.imshow("G Blur", im2fg)
-# cv2.imshow("G Bilateral", im2fb)
-# cv2.waitKey(0)
-# cv2.destroyAllWindows()
