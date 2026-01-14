@@ -1,4 +1,6 @@
 
+import numpy as np
+
 def histo_gray(im):
 
     h, w = im.shape[:2]
