@@ -1,11 +1,24 @@
+import torch
 
-from mlkit import Perceptron
+# 1. Check version
+print(f"PyTorch version: {torch.__version__}")
 
-perceptron = Perceptron(2, w=[1, 1], b=1, verb={"struct": True, "equ": False})
+# 2. Check for GPU (CUDA) availability
+cuda_available = torch.cuda.is_available()
+print(f"CUDA available: {cuda_available}")
 
-perceptron.fit([0, 0, 0, 1], eta=1, verb={
-    "struct": True,
-    "equ": False,
-})
+if cuda_available:
+    print(f"GPU Device: {torch.cuda.get_device_name(0)}")
 
-perceptron.display({"struct": True, "equ": False})
+# 3. Perform a quick calculation
+# Create two random tensors and multiply them
+try:
+    device = "cuda" if cuda_available else "cpu"
+    x = torch.rand(3, 3).to(device)
+    y = torch.rand(3, 3).to(device)
+    z = torch.matmul(x, y)
+
+    print("\nSuccess! Matrix multiplication result:")
+    print(z)
+except Exception as e:
+    print(f"\nSomething went wrong: {e}")
