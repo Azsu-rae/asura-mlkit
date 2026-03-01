@@ -1,9 +1,9 @@
-
 from util import TruthTable
 
 import numpy as np
 
 import matplotlib
+
 matplotlib.use("QtAgg")
 
 import matplotlib.pyplot as plt  # noqa: E402
@@ -13,7 +13,7 @@ class SingleNeuron:
     def __init__(self, weights, bias, activationFunction, inputNames=None):
 
         if inputNames is None:
-            inputNames = [f"x{i}" for i in range(1, len(weights)+1)]
+            inputNames = [f"x{i}" for i in range(1, len(weights) + 1)]
 
         if len(inputNames) != len(weights):
             raise ValueError("Each input has a weight in a Perceptron!")
@@ -44,14 +44,16 @@ class SingleNeuron:
                 prediction = self.linear_combination(x)
 
                 # Loss: L = (ŷ - y)²
-                loss[it] += (prediction - target)**2
+                loss[it] += (prediction - target) ** 2
 
                 # Gradients:
 
                 # ∂L/∂wi = 2(ŷ - y)·xi
                 for index, (wi, xi) in enumerate(zip(self.weights, x)):
                     grad_wi = 2 * (prediction - target) * xi
-                    self.weights[index] = wi - learning_rate * grad_wi  # (-) ???
+                    self.weights[index] = (
+                        wi - learning_rate * grad_wi
+                    )  # (-) ???
 
                 # ∂L/∂b = 2(ŷ - y)
                 grad_bias = 2 * (prediction - target)

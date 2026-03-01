@@ -1,2 +1,4 @@
+#! /bin/bash
 
-python -m CV_TP2.TP2_Exo4
+source .venv/bin/activate
+python -m main
