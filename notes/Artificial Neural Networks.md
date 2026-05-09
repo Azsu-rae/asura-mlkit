@@ -5,12 +5,18 @@
 
 In machine learning, A **Neuron** is a mathematical structure _vaguely_ inspired by the biological neuron, so let's start by looking at that first. from Wikipedia:
 
-<div style="display: flex; align-items: center; gap: 20px;">
-	<img src="images/Blausen_0657_MultipolarNeuron.png" width="240" height="200">
-	<div style="font-style: italic;">
-		“A <b>neuron</b> (American English), <b>neurone</b> (British English), or <b>nerve cell</b>, is a cell that is <b>excitable</b>, firing electric signals called <b>action potentials</b> across a <b>neural network</b> in the <b>nervous system</b>, mainly in the central nervous system, and helps to receive and conduct <b>impulses</b>. Neurons communicate with other cells via <b>synapses</b>, which are specialized connections that commonly use minute amounts of chemical neurotransmitters to pass the electric signal from the presynaptic neuron to the target cell through the synaptic gap.”
-	</div>
-</div>
+<table width="100%">
+	<tr>
+		<td width="40%">
+			<img src="images/Blausen_0657_MultipolarNeuron.png" width="100%" height="100%">
+		</td>
+		<td>
+			<p>
+				“A <b>neuron</b> (American English), <b>neurone</b> (British English), or <b>nerve cell</b>, is a cell that is <b>excitable</b>, firing electric signals called <b>action potentials</b> across a <b>neural network</b> in the <b>nervous system</b>, mainly in the central nervous system, and helps to receive and conduct <b>impulses</b>. Neurons communicate with other cells via <b>synapses</b>, which are specialized connections that commonly use minute amounts of chemical neurotransmitters to pass the electric signal from the presynaptic neuron to the target cell through the synaptic gap.”
+			</p>
+		</td>
+	</tr>
+</table>
 
 while the anatomy of such a neuron is quite complexe, the mathematically inspired model of it is much more accessible. In machine learning, we abstract a few key behaviors:
 
