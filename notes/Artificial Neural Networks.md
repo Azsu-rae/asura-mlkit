@@ -11,6 +11,7 @@ In machine learning, A **Neuron** is a mathematical structure _vaguely_ inspired
     “A <b>neuron</b> (American English), <b>neurone</b> (British English), or <b>nerve cell</b>, is a cell that is <b>excitable</b>, firing electric signals called <b>action potentials</b> across a <b>neural network</b> in the <b>nervous system</b>, mainly in the central nervous system, and helps to receive and conduct <b>impulses</b>. Neurons communicate with other cells via <b>synapses</b>, which are specialized connections that commonly use minute amounts of chemical neurotransmitters to pass the electric signal from the presynaptic neuron to the target cell through the synaptic gap.”
   </p>
 </div>
+<br clear="left" />
 
 while the anatomy of such a neuron is quite complexe, the mathematically inspired model of it is much more accessible. In machine learning, we abstract a few key behaviors:
 
