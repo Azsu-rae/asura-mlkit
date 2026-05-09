@@ -13,6 +13,8 @@ In machine learning, A **Neuron** is a mathematical structure _vaguely_ inspired
 </div>
 <br clear="left" />
 
+
+
 while the anatomy of such a neuron is quite complexe, the mathematically inspired model of it is much more accessible. In machine learning, we abstract a few key behaviors:
 
 - **Excitability**: The neuron's ability to be excited or, in machine learning terms, **activated**, in response to input signals
