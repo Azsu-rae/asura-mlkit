@@ -25,14 +25,14 @@ while the anatomy of such a neuron is quite complexe, the mathematically inspire
 - **Weighted connections**: some inputs influence the neuron more strongly than others
 
 We usually visualize such an abstraction as a mathematical construct illustrated in the following diagram:
-<div align="center" width=500 height=500> <img src="tex/neuron.svg"> </div>
+<div align="center" width="100%" height="100%"> <img src="tex/neuron.svg"> </div>
 We first need to define a **linear combination** of vectors (or vector components) as an expression where you multiply each term by a scalar and sum the results.
 
 We can therefore write the complete formula for the activation of a neuron, noted $z$, as the linear combination of the **input vector** $x = (x_1, x_2, ..., x_n)$  and a **weight vector** $w=(w_1, w_2, ..., w_n)$, plus a **constant offset** $b$:
 $$ z = \sum_{i=0}^n w_i x_i + b = x_1 w_1 + x_2 w_2 + \dots + x_n w_n + b $$
 We usually want to chain such neurons to form neural networks networks as illustrated:
 
-<div align="center" width=500 height=500> <img src="tex/ann.svg"> </div>
+<div align="center" width="100%" height="100%"> <img src="tex/ann.svg"> </div>
 
 Let us start by looking at the simplest form of a neural network developed in the 1950s (although neural networks themselves were first invented 1943).
 ## The Perceptron
@@ -41,5 +41,5 @@ The **Perceptron** is a **supervised learning** algorithm for **binary classific
 
 # MNIST
 
-<div align="center" width=500 height=500> <img src="tex/mnist.svg"> </div>
+<div align="center" width="100%" height="100%"> <img src="tex/mnist.svg"> </div>
 
