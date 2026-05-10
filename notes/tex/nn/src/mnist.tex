@@ -21,8 +21,13 @@
         \node[neuron] (I\i) at (0,-{\i}*1.5-1.5) {$a_{\k}^{(0)}$};
 
     % First hidden layer
-    \foreach \i in {1,...,16}
+    \foreach \i in {1,...,7}
         \node[neuron] (H1\i) at (8,-{\i}*1.5) {$a_{\i}^{(1)}$};
+
+    \node at (0, {-8*1.5}) {\vdots};
+
+    \foreach \i [evaluate=\i as \k using int(784-15+\i)] in {8,...,15}
+        \node[neuron] (I\i) at (0,-{\i}*1.5-1.5) {$a_{\k}^{(0)}$};
 
     % Second hidden layer
     \foreach \i in {1,...,16}

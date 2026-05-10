@@ -19,7 +19,7 @@ while the anatomy of such a neuron is quite complexe, the mathematically inspire
 - **Weighted connections**: some inputs influence the neuron more strongly than others
 
 We usually visualize such an abstraction as a mathematical construct illustrated in the following diagram:
-<div align="center" width="100%" height="100%"> <img src="tex/neuron.svg"> </div>
+<div align="center" width="100%" height="100%"> <img src="tex/nn/neuron.svg"> </div>
 We first need to define a **linear combination** of vectors (or vector components) as an expression where you multiply each term by a scalar and sum the results.
 
 TODO: illustrate
@@ -30,7 +30,7 @@ TODO: motivate the bias
 
 We usually want to chain such neurons to form neural networks networks as illustrated:
 
-<div align="center" width="100%" height="100%"> <img src="tex/ann.svg"> </div>
+<div align="center" width="100%" height="100%"> <img src="tex/nn/ann.svg"> </div>
 
 TODO: motivate the activation function
 
@@ -46,7 +46,7 @@ TODO: XOR, linear separability, and MLPs
 
 Let's consider a simple neural network with only 4 neurons:
 
-<div align="center" width="100%" height="100%"> <img src="tex/gradient_descent_example.svg"> </div>
+<div align="center" width="100%" height="100%"> <img src="tex/nn/gradient_descent_example.svg"> </div>
 
 TODO: switch to a linear regression example
 POTENTIALLY: convex, and Normal Equation closed-form solution
@@ -85,5 +85,5 @@ $$
 ...
 # MNIST
 
-<div align="center" width="100%" height="100%"> <img src="tex/mnist.svg"> </div>
+<div align="center" width="100%" height="100%"> <img src="tex/nn/mnist.svg"> </div>
 
