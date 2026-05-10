@@ -1,5 +1,6 @@
-
-# What is a Neuron?
+https://claude.ai/chat/bc003cb3-021a-4ff9-936c-09e535a6a575
+https://www.youtube.com/watch?v=aircAruvnKk
+# What is an Artificial Neural Network?
 
 ## Definition
 
@@ -8,13 +9,9 @@ In machine learning, A **Neuron** is a mathematical structure _vaguely_ inspired
 <div>
   <img src="images/Blausen_0657_MultipolarNeuron.png" align="left" width="40%" height="100%" style="margin-right: 20px; margin-bottom: 10px;">
   <p>
-    “A <b>neuron</b> (American English), <b>neurone</b> (British English), or <b>nerve cell</b>, is a cell that is <b>excitable</b>, firing electric signals called <b>action potentials</b> across a <b>neural network</b> in the <b>nervous system</b>, mainly in the central nervous system, and helps to receive and conduct <b>impulses</b>. Neurons communicate with other cells via <b>synapses</b>, which are specialized connections that commonly use minute amounts of chemical neurotransmitters to pass the electric signal from the presynaptic neuron to the target cell through the synaptic gap.”
+    “A <b>neuron</b> (American English), <b>neurone</b> (British English), or <b>nerve cell</b>, is a cell that is <b>excitable</b>, firing electric signals called <b>action potentials</b> across a <b>neural network</b> in the <b>nervous system</b>, mainly in the central nervous system, and helps to receive and conduct <b>impulses</b>. Neurons communicate with other cells via <b>synapses</b>, which are specialized connections that commonly use minute amounts of chemical neurotransmitters to pass the electric signal from the presynaptic neuron to the target cell through the synaptic gap.” TODO: add a reference
   </p>
 </div>
-<br clear="left" />
-
-
-
 while the anatomy of such a neuron is quite complexe, the mathematically inspired model of it is much more accessible. In machine learning, we abstract a few key behaviors:
 
 - **Excitability**: The neuron's ability to be excited or, in machine learning terms, **activated**, in response to input signals
@@ -25,17 +22,67 @@ We usually visualize such an abstraction as a mathematical construct illustrated
 <div align="center" width="100%" height="100%"> <img src="tex/neuron.svg"> </div>
 We first need to define a **linear combination** of vectors (or vector components) as an expression where you multiply each term by a scalar and sum the results.
 
+TODO: illustrate
+
 We can therefore write the complete formula for the activation of a neuron, noted $z$, as the linear combination of the **input vector** $x = (x_1, x_2, ..., x_n)$  and a **weight vector** $w=(w_1, w_2, ..., w_n)$, plus a **constant offset** $b$:
 $$ z = \sum_{i=0}^n w_i x_i + b = x_1 w_1 + x_2 w_2 + \dots + x_n w_n + b $$
+TODO: motivate the bias
+
 We usually want to chain such neurons to form neural networks networks as illustrated:
 
 <div align="center" width="100%" height="100%"> <img src="tex/ann.svg"> </div>
 
-Let us start by looking at the simplest form of a neural network developed in the 1950s (although neural networks themselves were first invented 1943).
+TODO: motivate the activation function
+
 ## The Perceptron
+
+Let us start by looking at the simplest form of a neural network developed in the 1950s (although neural networks themselves were first invented in 1943).
 
 The **Perceptron** is a **supervised learning** algorithm for **binary classification**.
 
+TODO: definition and truth table learning
+TODO: XOR, linear separability, and MLPs
+# Gradient Descent
+
+Let's consider a simple neural network with only 4 neurons:
+
+<div align="center" width="100%" height="100%"> <img src="tex/gradient_descent_example.svg"> </div>
+
+TODO: switch to a linear regression example
+POTENTIALLY: convex, and Normal Equation closed-form solution
+
+We'll be using the sigmoïde ($\sigma$) activation function:
+$$ a^{(l)} = \sigma{(z^{(l)})} = \sigma(w^{(l)} a^{(l-1)} + b^{(l)}) $$
+Gradient descent uses the derivative of the cost function $C$ which is defined as
+$$ C = (a^{(l)} - y)^2 $$
+where $y$ is the desired output of the network. The derivative is defined as,
+$$
+\begin{aligned}
+\frac{\partial C}{\partial w^{(l)}}
+&= \frac{\partial(a^{(l)} - y)^2}{\partial w^{(l)}} \\ \\
+&= 2 (a^{(l)}-y)\frac{\partial a^{(l)}}{\partial w^{(l)}}
+&\text{ (apply the chain rule)}\\ \\
+&= 2 (a^{(l)}-y)\frac{\partial \sigma(z^{(l)})}{\partial w^{(l)}}
+&\text{ (plug in $a^{(l)}$)}\\ \\
+\end{aligned}
+$$
+Of course we have,
+$$
+\frac{\partial\sigma(z^{(l)})}{\partial w^{(l)}}
+= \frac{\partial\sigma(w^{(l)}a^{(l-1)}+b^{(l)})}{\partial w^{(l)}}
+= a^{(l-1)} \frac{\partial\sigma'(w^{(l)}a^{(l-1)}+b^{(l)})}{\partial w^{(l)}}
+$$
+and therefore,
+$$
+\frac{\partial\sigma(z^{(l)})}{\partial w^{(l)}}
+= a^{(l-1)} \frac{\partial\sigma'(z^{(l)})}{\partial w^{(l)}}
+$$
+plugging this result back in the cost function derivative we get,
+$$
+\frac{\partial C}{\partial w^{(l)}}
+= 2 (a^{(l)}-y)\,a^{(l-1)}\,\frac{\partial \sigma'(z^{(l)})}{\partial w^{(l)}}
+$$
+...
 # MNIST
 
 <div align="center" width="100%" height="100%"> <img src="tex/mnist.svg"> </div>
