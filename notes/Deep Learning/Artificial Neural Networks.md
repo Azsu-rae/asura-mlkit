@@ -1,5 +1,6 @@
 https://claude.ai/chat/bc003cb3-021a-4ff9-936c-09e535a6a575
 https://www.youtube.com/watch?v=aircAruvnKk
+https://bootcamp-2026.vercel.app/#/
 # What is an Artificial Neural Network?
 
 ## Definition

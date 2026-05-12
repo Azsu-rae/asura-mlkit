@@ -1,10 +1,12 @@
 
+numpy
+matplotlib
+
+opencv-python
+
 torch
 torchtext
 torchaudio
 torchvision
 
-numpy
-matplotlib
-
-opencv-python
+medmnist
