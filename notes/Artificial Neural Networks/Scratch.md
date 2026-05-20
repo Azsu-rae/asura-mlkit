@@ -1,3 +1,4 @@
+
 https://claude.ai/chat/bc003cb3-021a-4ff9-936c-09e535a6a575
 https://www.youtube.com/watch?v=aircAruvnKk
 https://bootcamp-2026.vercel.app/#/
@@ -13,6 +14,7 @@ In machine learning, A **Neuron** is a mathematical structure _vaguely_ inspired
     “A <b>neuron</b> (American English), <b>neurone</b> (British English), or <b>nerve cell</b>, is a cell that is <b>excitable</b>, firing electric signals called <b>action potentials</b> across a <b>neural network</b> in the <b>nervous system</b>, mainly in the central nervous system, and helps to receive and conduct <b>impulses</b>. Neurons communicate with other cells via <b>synapses</b>, which are specialized connections that commonly use minute amounts of chemical neurotransmitters to pass the electric signal from the presynaptic neuron to the target cell through the synaptic gap.” TODO: add a reference
   </p>
 </div>
+
 while the anatomy of such a neuron is quite complexe, the mathematically inspired model of it is much more accessible. In machine learning, we abstract a few key behaviors:
 
 - **Excitability**: The neuron's ability to be excited or, in machine learning terms, **activated**, in response to input signals
@@ -50,41 +52,6 @@ Let's consider a simple neural network with only 4 neurons:
 <div align="center" width="100%" height="100%"> <img src="tex/nn/gradient_descent_example.svg"> </div>
 
 TODO: switch to a linear regression example
-POTENTIALLY: convex, and Normal Equation closed-form solution
+POTENTIALLY: convex, and Normal Equation closed-form solution, linearity
 
-We'll be using the sigmoïde ($\sigma$) activation function:
-$$ a^{(l)} = \sigma{(z^{(l)})} = \sigma(w^{(l)} a^{(l-1)} + b^{(l)}) $$
-Gradient descent uses the derivative of the cost function $C$ which is defined as
-$$ C = (a^{(l)} - y)^2 $$
-where $y$ is the desired output of the network. The derivative is defined as,
-$$
-\begin{aligned}
-\frac{\partial C}{\partial w^{(l)}}
-&= \frac{\partial(a^{(l)} - y)^2}{\partial w^{(l)}} \\ \\
-&= 2 (a^{(l)}-y)\frac{\partial a^{(l)}}{\partial w^{(l)}}
-&\text{ (apply the chain rule)}\\ \\
-&= 2 (a^{(l)}-y)\frac{\partial \sigma(z^{(l)})}{\partial w^{(l)}}
-&\text{ (plug in $a^{(l)}$)}\\ \\
-\end{aligned}
-$$
-Of course we have,
-$$
-\frac{\partial\sigma(z^{(l)})}{\partial w^{(l)}}
-= \frac{\partial\sigma(w^{(l)}a^{(l-1)}+b^{(l)})}{\partial w^{(l)}}
-= a^{(l-1)} \frac{\partial\sigma'(w^{(l)}a^{(l-1)}+b^{(l)})}{\partial w^{(l)}}
-$$
-and therefore,
-$$
-\frac{\partial\sigma(z^{(l)})}{\partial w^{(l)}}
-= a^{(l-1)} \frac{\partial\sigma'(z^{(l)})}{\partial w^{(l)}}
-$$
-plugging this result back in the cost function derivative we get,
-$$
-\frac{\partial C}{\partial w^{(l)}}
-= 2 (a^{(l)}-y)\,a^{(l-1)}\,\frac{\partial \sigma'(z^{(l)})}{\partial w^{(l)}}
-$$
 ...
-# MNIST
-
-<div align="center" width="100%" height="100%"> <img src="tex/nn/mnist.svg"> </div>
-

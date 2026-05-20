@@ -5,12 +5,10 @@
 \begin{document}
 
 \begin{tikzpicture}[
-    every node/.append style={text=white},
-    every path/.append style={draw=white},
     neuron/.style={circle, draw, minimum size=1cm}
 ]
 
-    % First hidden layer
+    % 128 64 10
 
     \foreach \i in {1,...,7}
         \node[neuron] (I\i) at (0,-{\i}*1.5) {$a_{\i}^{(0)}$};
@@ -24,14 +22,20 @@
     \foreach \i in {1,...,7}
         \node[neuron] (H1\i) at (8,-{\i}*1.5) {$a_{\i}^{(1)}$};
 
-    \node at (0, {-8*1.5}) {\vdots};
+    \node at (8, {-8*1.5}) {\vdots};
 
-    \foreach \i [evaluate=\i as \k using int(784-15+\i)] in {8,...,15}
-        \node[neuron] (I\i) at (0,-{\i}*1.5-1.5) {$a_{\k}^{(0)}$};
+    \foreach \i [evaluate=\i as \k using int(128-15+\i)] in {8,...,15}
+        \node[neuron] (H1\i) at (8,-{\i}*1.5-1.5) {$a_{\k}^{(1)}$};
 
     % Second hidden layer
-    \foreach \i in {1,...,16}
+    \foreach \i in {1,...,7}
         \node[neuron] (H2\i) at (16,-{\i}*1.5) {$a_{\i}^{(2)}$};
+
+    \node at (16, {-8*1.5}) {\vdots};
+
+    \foreach \i [evaluate=\i as \k using int(64-15+\i)] in {8,...,15}
+        \node[neuron] (H2\i) at (16,-{\i}*1.5-1.5) {$a_{\k}^{(2)}$};
+
 
     % Output layer
     \foreach \i in {1,...,10}
@@ -40,14 +44,14 @@
     % Connections
 
     \foreach \i in {1,...,15}
-        \foreach \j in {1,...,16}
+        \foreach \j in {1,...,15}
             \draw (I\i) -- (H1\j);
 
-    \foreach \i in {1,...,16}
-        \foreach \j in {1,...,16}
+    \foreach \i in {1,...,15}
+        \foreach \j in {1,...,15}
             \draw (H1\i) -- (H2\j);
 
-    \foreach \i in {1,...,16}
+    \foreach \i in {1,...,15}
         \foreach \j in {1,...,10}
             \draw (H2\i) -- (O\j);
 

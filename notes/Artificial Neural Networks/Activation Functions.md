@@ -2,8 +2,11 @@
 $$
 \sigma(x) = \frac{1}{1+e^{-x}}
 $$
-
 - Used for multi-label
+- Interesting derivative:
+$$
+\sigma'(x) = \sigma(x) (1-\sigma(x))
+$$
 ### Softmax
 
 For a vector $z$ of length $K$:
