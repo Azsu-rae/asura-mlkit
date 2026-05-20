@@ -13,6 +13,7 @@ the corresponding equation is,
 $$
 z^{(l)}_k = \Sigma_{i=1}^{n} w_{k, i} a^{(l-1)}_i + b^{(l)}_k
 $$
+
 We'll be using the sigmoïde ($\sigma$) activation function and so,
 
 $$
