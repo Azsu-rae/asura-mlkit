@@ -12,6 +12,7 @@ $$
 ### Softmax
 
 For a vector $z$ of length $K$:
+
 $$
 Softmax(z_i) = \frac{e^{z_i}}{\Sigma_{j=1}^{K} e^{z_j}}
 $$
