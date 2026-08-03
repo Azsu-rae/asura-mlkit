@@ -1,4 +1,8 @@
 ### TAI TPs Images
 
-You can find all the TP images [here](https://drive.google.com/drive/folders/1Q3pt4DxMoC6d35xCjBFh5pw89BAINSUD?usp=sharing). This folder contains
-the images used in the TAI TPs.
+To get the images used in the TP, run the `fetch-assets.sh` script:
+
+```bash
+chmod +x fetch-assets.sh
+./fetch-assets.sh
+```
