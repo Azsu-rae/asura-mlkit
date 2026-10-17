@@ -1,13 +1,7 @@
 
-# PDFs and Documentation
+# References and Documentation
 
-You can find the actual TPs and my personal notes in this ![repo](https://github.com/Azsu-rae/asura-mldocs)
-
-# TAI TPs Images
-
-To get the images used in the TP, run the `fetch-assets.sh` script:
-
-```bash
-chmod +x fetch-assets.sh
-./fetch-assets.sh
-```
+- You can find the actual TPs, slides, and personal notes in this ![repo](https://github.com/Azsu-rae/asura-mldocs)
+- The ![MNIST dataset](https://www.kaggle.com/datasets/hojjatk/mnist-dataset)
+- The ![IDX format explanation](https://www.fon.hum.uva.nl/praat/manual/IDX_file_format.html)
+- The TAI images from Pr. Gaceb's class and TPs in this ![Google Drive](https://drive.google.com/drive/u/2/folders/1Q3pt4DxMoC6d35xCjBFh5pw89BAINSUD)
