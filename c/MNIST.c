@@ -1,16 +1,17 @@
 #include "mnist.h"
+#include "tensor.h"
 
 #include <stdio.h>
 
 MNIST MNIST_ctor(const char* idxfile_path, MNIST_TYPE filetype) {
     return (MNIST) {
-        .idxfile = IDXFile_ctor(idxfile_path),
-        .type = filetype
+        .idxfile = MNIST_from_IDXFile(idxfile_path),
+        .type = filetype,
     };
 }
 
 void MNIST_dtor(MNIST mnist) {
-    IDXFile_dtor(mnist.idxfile);
+    Tensor_dtor(mnist.idxfile);
 }
 
 void MNIST_struct(MNIST mnist) {
@@ -28,7 +29,7 @@ void MNIST_struct(MNIST mnist) {
             printf("\n\n------------ TRAIN_LABELS ------------");
             break;
     }
-    IDXFile_print(mnist.idxfile);
+    Tensor_print(mnist.idxfile);
 }
 
 void MNIST_sample(MNIST mnist, size_t index) {

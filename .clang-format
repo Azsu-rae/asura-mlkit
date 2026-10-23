@@ -1,0 +1,3 @@
+BasedOnStyle: Google   # or Google, Mozilla, WebKit, Chromium
+IndentWidth: 4       # override style’s default
+ColumnLimit: 200

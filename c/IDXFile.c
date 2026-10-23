@@ -1,12 +1,12 @@
 
-#include "idxfile.h"
+#include "tensor.h"
 
 #include <inttypes.h>
 #include <stdio.h>
 #include <stdlib.h>
 
 
-IDXFile IDXFile_ctor(const char* filepath) {
+Tensor IDXFile_ctor(const char* filepath) {
     FILE* f = fopen(filepath, "rb");
     if (!f) {
         fprintf(stderr, "couldn't fopen: %s", filepath);

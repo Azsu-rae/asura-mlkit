@@ -1,5 +1,6 @@
 
 #include "c/mnist.h"
+#include "c/mlp.h"
 
 #define TEST_IMAGES_PATH "./dataset/t10k-images.idx3-ubyte"
 #define TEST_LABELS_PATH "./dataset/t10k-labels.idx1-ubyte"
@@ -12,11 +13,13 @@ int main() {
     MNIST train_imgs = MNIST_ctor(TRAIN_IMAGES_PATH, TRAIN_IMGS);
     MNIST train_labels = MNIST_ctor(TRAIN_LABELS_PATH, TRAIN_LABELS);
 
-    MNIST_struct(train_imgs);
-    MNIST_struct(train_labels);
+    MLP_CTOR(784, 16, 16, 10);
 
-    MNIST_sample(train_labels, 0);
-    MNIST_sample(train_imgs, 0);
+    // MNIST_struct(train_imgs);
+    // MNIST_struct(train_labels);
+    //
+    // MNIST_sample(train_labels, 0);
+    // MNIST_sample(train_imgs, 0);
 
     MNIST_dtor(train_imgs);
     MNIST_dtor(train_labels);

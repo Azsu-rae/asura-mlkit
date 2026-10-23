@@ -9,4 +9,5 @@ torchtext
 torchaudio
 torchvision
 
-medmnist
+spacy
+nltk
