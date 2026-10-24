@@ -5,15 +5,13 @@
 #include <stddef.h>
 #include <stdio.h>
 
-#include "./dsa/arrays.h"
+#include "./dsa/Data.h"
+#include "Tensor.h"
 
-#define MLP_CTOR(...) MLP_ctor(__VA_ARGS__, -1)
+#define MLP_CTOR(...) MLP_ctor(DOUBLE, __VA_ARGS__, -1)
 
-typedef struct {
-    size_t* shape;
-    double*** weights;
-    double** bias;
-} MLP;
+typedef struct {} MLP;
 
+MLP MLP_ctor(DType type, size_t layer, ...);
 
 #endif

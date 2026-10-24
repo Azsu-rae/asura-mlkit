@@ -16,6 +16,7 @@ typedef struct {
 } Tensor;
 
 
-Tensor Tensor_ctor(DType type, size_t layer, ...);
+void Tensor_dtor(Tensor tensor);
+void Tensor_desc(Tensor tensor);
 
 #endif
