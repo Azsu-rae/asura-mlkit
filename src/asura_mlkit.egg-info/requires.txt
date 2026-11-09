@@ -1,14 +1,9 @@
-
 numpy
 pandas
 matplotlib
-
 opencv-python
-
 torch
-torchtext
 torchaudio
 torchvision
-
 spacy
 nltk

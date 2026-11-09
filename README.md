@@ -1,4 +1,20 @@
 
+# Environment Setup
+
+## Requirements
+
+- Python 3.12 or above
+
+## Environment Setup
+
+Create a virtual environment, activate it, and install the build dependencies
+
+```sh
+python -m venv .venv
+source .venv/bin/activate.fish # or whaetever script is right for your SHELL
+pip install -e .
+```
+
 # References and Documentation
 
 - You can find the actual TPs, slides, and personal notes in this ![repo](https://github.com/Azsu-rae/asura-mldocs)
