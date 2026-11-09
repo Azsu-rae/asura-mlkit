@@ -5,15 +5,16 @@ __pycache__
 .venv
 
 .ipynb_checkpoints
+.jupyter
 
 *.log
 *.aux
+*.egg-info
 
 Images
 Images_TP2_EXO6_SR
 
-<<<<<<< HEAD
 main
-=======
+
 *.pdf
->>>>>>> 7aa63e34cb1983b2837371ed9052c27bc54669d6
+

@@ -15,6 +15,12 @@ source .venv/bin/activate.fish # or whaetever script is right for your SHELL
 pip install -e .
 ```
 
+To register it as a jupyter kernel, install `ipykernel` then run
+
+```sh
+python -m ipykernel install --user --name mlkit --display-name "Python (mlkit)"
+```
+
 # References and Documentation
 
 - You can find the actual TPs, slides, and personal notes in this ![repo](https://github.com/Azsu-rae/asura-mldocs)
