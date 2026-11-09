@@ -1,9 +1,0 @@
-numpy
-pandas
-matplotlib
-opencv-python
-torch
-torchaudio
-torchvision
-spacy
-nltk
