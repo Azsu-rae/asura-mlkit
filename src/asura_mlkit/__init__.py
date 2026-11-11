@@ -1,3 +1,2 @@
 
-asuraasura_mlkitt
-asuraasura_mlkitt
+import asura_mlkit.util

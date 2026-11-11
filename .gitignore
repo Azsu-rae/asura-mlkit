@@ -1,20 +1,15 @@
 
-!.clang-format
-__pycache__
-
 .venv
 
-.ipynb_checkpoints
-.jupyter
+data/
 
 *.log
 *.aux
 *.egg-info
-
-Images
-Images_TP2_EXO6_SR
-
-main
-
 *.pdf
 
+!.clang-format
+
+.ipynb_checkpoints
+.jupyter
+__pycache__
