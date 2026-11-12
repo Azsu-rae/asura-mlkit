@@ -4,12 +4,21 @@ version = "0.1.0"
 requires-python = ">=3.12"
 dependencies = [
 
-    # The basics
+    # fast computing
     "numpy",
+
+    # data loading and operations on table-shaped data
     "pandas",
+
+    # visualization & plots
     "seaborn",
     "matplotlib",
+
+    # machine learning algorithms
     "scikit-learn",
+
+    # to dowload datasets
+    "kagglehub",
 
     # computer vision
     "opencv-python",

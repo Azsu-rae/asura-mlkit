@@ -2,14 +2,16 @@
 .venv
 
 data/
+datasets/
+datasets/
 
+.*
 *.log
 *.aux
 *.egg-info
 *.pdf
 
 !.clang-format
+!.gitmodules
 
-.ipynb_checkpoints
-.jupyter
 __pycache__
