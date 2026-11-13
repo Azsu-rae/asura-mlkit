@@ -1,9 +1,14 @@
 
+# python stuff
 .venv
+__pycache__
 
+# datasets
 data/
 datasets/
 datasets/
+test_lr
+train_data
 
 .*
 *.log
@@ -13,5 +18,3 @@ datasets/
 
 !.clang-format
 !.gitmodules
-
-__pycache__
