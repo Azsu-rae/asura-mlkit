@@ -23,7 +23,8 @@ python -m ipykernel install --user --name mlkit --display-name "Python (mlkit)"
 
 # References and Documentation
 
-- You can find the actual TPs, slides, and personal notes in this ![repo](https://github.com/Azsu-rae/asura-mldocs)
-- The ![MNIST dataset](https://www.kaggle.com/datasets/hojjatk/mnist-dataset)
-- The ![IDX format explanation](https://www.fon.hum.uva.nl/praat/manual/IDX_file_format.html)
-- The TAI images from Pr. Gaceb's class and TPs in this ![Google Drive](https://drive.google.com/drive/u/2/folders/1Q3pt4DxMoC6d35xCjBFh5pw89BAINSUD)
+- You can find the actual TPs, slides, and personal notes in this [repo](https://github.com/Azsu-rae/asura-mldocs)
+- The [MNIST dataset](https://www.kaggle.com/datasets/hojjatk/mnist-dataset)
+- The [IDX format explanation](https://www.fon.hum.uva.nl/praat/manual/IDX_file_format.html)
+- The TAI images from Pr. Gaceb's class and TPs in this [Google Drive](https://drive.google.com/drive/u/2/folders/1Q3pt4DxMoC6d35xCjBFh5pw89BAINSUD)
+- The [first project of the GAI class dataset](https://drive.google.com/drive/u/1/folders/1vWkA3bi66dQWThq40BUTlhoriNCCt6lk)
