@@ -6,6 +6,7 @@ dependencies = [
 
     # fast computing
     "numpy",
+    "scipy",
 
     # data loading and operations on table-shaped data
     "pandas",
@@ -22,6 +23,8 @@ dependencies = [
 
     # computer vision
     "opencv-python",
+    "pillow",
+    "sewar",
 
     # PyTorch
     "torch",
@@ -31,5 +34,8 @@ dependencies = [
 
     # NLP
     "spacy",
-    "nltk"
+    "nltk",
+
+    # miscelaneous
+    "tqdm",
 ]
