@@ -10,6 +10,8 @@ datasets/
 datasets/
 test_lr
 train_data
+pokemon
+pokemon_jpg
 
 .*
 *.log
