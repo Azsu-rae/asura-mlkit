@@ -18,6 +18,8 @@ pokemon_jpg
 *.aux
 *.egg-info
 *.pdf
+*.pth
+*.mat
 
 !.clang-format
 !.gitmodules
