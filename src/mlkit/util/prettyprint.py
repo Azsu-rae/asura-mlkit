@@ -38,3 +38,18 @@ def _tensor_add(t1: torch.Tensor, t2: torch.Tensor) -> str:
 
 def tensor_add(t1: torch.Tensor, t2: torch.Tensor):
     print(_tensor_add(t1, t2))
+
+
+def adjacent(writer1, writer2):
+    b1: list[str] = []
+    b2: list[str] = []
+
+    writer1(lambda s: b1.extend(s.split("\n")))
+    writer2(lambda s: b2.extend(s.split("\n")))
+
+    length = max(len(s) for s in b1)
+    # print(f"{b1[0] + " | " + b2[0]=}")
+    print("\n".join(f"{el1:{length}}" + " "*4 + "|" + " "*4 + el2 for el1, el2 in zip(b1, b2)))
+
+    longest, shortest = (b1, b2) if len(b1) > len(b2) else (b2, b1)
+    print("\n".join(longest[len(shortest):]))
