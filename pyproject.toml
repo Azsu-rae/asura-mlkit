@@ -20,11 +20,13 @@ dependencies = [
 
     # machine learning algorithms
     "scikit-learn",
+    "umap-learn",  # for visualization
 
     # to dowload datasets
     "kagglehub",
 
     # computer vision
+    "scikit-image",
     "opencv-python",
     "pillow",
     "sewar",
