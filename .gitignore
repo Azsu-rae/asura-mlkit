@@ -20,6 +20,9 @@ pokemon_jpg
 *.pdf
 *.pth
 *.mat
+*.jpg
+
+!nature.jpg
 
 !.clang-format
 !.gitmodules
